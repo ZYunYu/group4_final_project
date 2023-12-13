@@ -5,6 +5,7 @@
 #define TLB_SIZE 16  // 16 entries in the TLB
 #define PAGE_TABLE_SIZE 256  // 2^8 entries in the page table
 
+
 // page table entry
 typedef struct {
     int isValid;
@@ -24,10 +25,13 @@ typedef struct {
     char pMemory[TOTAL_FRAMES][FRAME_SIZE];
 } MemoryManagementUnit;
 
+
 typedef struct{
     int pageNumber;
     int pageOffset;
 } Page;
+
+
 
 // TLB functions
 void add_tlb_entry();
@@ -38,7 +42,7 @@ void add_to_page_table();
 int check_page_table();
 
 // pages function 
-int* read_addresses();
+int* read_addresses(char* filename);
 
 int get_page_number(int logical_address);
 
@@ -46,9 +50,20 @@ int get_offsef(int logical_address);
 
 Page* convert_addresses(int* addresses);
 
+Page* get_page(Page* pages,int page_number);
+
 // frames functions 
 
-void read_from_backing_store(unsigned char* physicalMemory, int frameNumber, const char* backingStoreFile);
+void read_from_backing_store(signed char* physicalMemory, int frameNumber, const char* backingStoreFile);
+
+// mmu function 
+
+void translate_logical_to_physical();  //   
+
+void handle_page_fault(); // check page table if empty read from backing store then update page table with frame number 
+
+
+
 
 
 
