@@ -1,4 +1,4 @@
-#include ".h"
+#include "final_proj.h"
 #include <stdlib.h>
 #include <stdio.h>
 Page* pages;

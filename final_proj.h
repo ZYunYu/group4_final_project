@@ -24,6 +24,11 @@ typedef struct {
     char pMemory[TOTAL_FRAMES][FRAME_SIZE];
 } MemoryManagementUnit;
 
+typedef struct{
+    int pageNumber;
+    int pageOffset;
+} Page;
+
 // TLB functions
 void add_tlb_entry();
 int check_tlb();
@@ -31,6 +36,19 @@ int check_tlb();
 // Page table function 
 void add_to_page_table();
 int check_page_table();
+
+// pages function 
+int* read_addresses();
+
+int get_page_number(int logical_address);
+
+int get_offsef(int logical_address);
+
+Page* convert_addresses(int* addresses);
+
+// frames functions 
+
+void read_from_backing_store();
 
 
 
