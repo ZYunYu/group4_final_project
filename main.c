@@ -27,7 +27,7 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    // Rest of your implementation goes here
+    // Rest code goes here
 
     // Remember to free the allocated memory
     free(logical_addresses);
