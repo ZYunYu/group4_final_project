@@ -2,22 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 Page* pages;
-int* read_addresses(char* filename) {
-    printf("Before open ");
-    FILE* fp  = fopen(filename,"r");
-    int* addresses = (int*) malloc(sizeof(int)*1000);
-    if (fp == NULL){
-        fprintf(stderr, "No file is found");
-        exit(1);
-    }
 
-    for(int i =0;i<1000;i++) {
-        fscanf(fp,"%d,",&(addresses[i]));
-    }
-    fclose(fp);
-    return addresses;
-
-}
 Page* convert_addresses(int* addresses) {
     pages =(Page*) malloc(sizeof(Page) *1000);
     for (size_t i = 0; i < 1000; i++){
@@ -43,4 +28,5 @@ int get_page_offset(int logical_address) {
     int offset = logical_address & 0x00FF;
     return offset;
 }
+
 
