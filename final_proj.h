@@ -48,7 +48,7 @@ Page* convert_addresses(int* addresses);
 
 // frames functions 
 
-void read_from_backing_store();
+void read_from_backing_store(unsigned char* physicalMemory, int frameNumber, const char* backingStoreFile);
 
 
 

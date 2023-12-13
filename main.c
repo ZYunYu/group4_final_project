@@ -1,21 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int* read_logical_addresses(const char* filename, int* size) {
-    FILE* file = fopen(filename, "r");
-
-    // Allocate memory for logical addresses
-    int* addresses = malloc(1000 * sizeof(int)); // 1000 addresses
-    int addr;
-    *size = 0;
-
-    while (fscanf(file, "%d", &addr) == 1) {
-        addresses[*size] = addr;
-        (*size)++;
+int* read_addresses(char* filename) {
+    printf("Before open ");
+    FILE* fp  = fopen(filename,"r");
+    int* addresses = (int*) malloc(sizeof(int)*1000);
+    if (fp == NULL){
+        fprintf(stderr, "No file is found");
+        exit(1);
     }
 
-    fclose(file);
+    for(int i =0;i<1000;i++) {
+        fscanf(fp,"%d,",&(addresses[i]));
+    }
+    fclose(fp);
     return addresses;
+
 }
 
 int main() {

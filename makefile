@@ -3,5 +3,9 @@ a.out: pg.o
 pg.o:pg.c
 	$(CC) -c $?
 
+frames.o:frames.c
+	$(CC) -c $?
+
+
 
 
