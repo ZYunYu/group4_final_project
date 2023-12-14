@@ -6,11 +6,15 @@
 #define PAGE_TABLE_SIZE 256  // 2^8 entries in the page table
 
 
+
+
 // page table entry
 typedef struct {
     int isValid;
     int frameNumber;
 } PageTableEntry;
+
+extern PageTableEntry pageTable[PAGE_TABLE_SIZE];
 
 // TLB entry
 typedef struct {
@@ -31,15 +35,20 @@ typedef struct{
     int pageOffset;
 } Page;
 
+typedef struct{
+    int frameNumber;
+    int Offset;
+} Frame;
+
 
 
 // TLB functions
-void add_tlb_entry();
-int check_tlb();
+extern void add_tlb_entry();
+extern int check_tlb();
 
 // Page table function 
-void add_to_page_table();
-int check_page_table();
+extern void add_to_page_table();
+extern int check_page_table();
 
 // pages function 
 int* read_addresses(char* filename);
@@ -50,11 +59,11 @@ int get_offsef(int logical_address);
 
 Page* convert_addresses(int* addresses);
 
-Page* get_page(Page* pages,int page_number);
+extern Page* get_page(Page* pages,int page_number);
 
 // frames functions 
 
-signed char* read_from_backing_store(int frameNumber, const char* backingStoreFile);
+extern signed char* read_from_backing_store(int frameNumber, const char* backingStoreFile);
 
 // mmu function 
 

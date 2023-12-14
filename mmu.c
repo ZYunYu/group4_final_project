@@ -8,12 +8,13 @@
 
 int handle_page_fault(int page_number, MemoryManagementUnit* mmu) {
     int frame_number = (mmu);
-    int page_table_index = get_next_available_page_table_index(mmu);
+   
 
-    if (frame_number == -1 || page_table_index == -1) {
+ if (frame_number == -1 || page_table_index == -1) {
         printf("Error: No available frames or page table entries\n");
         exit(1);
     }
+    if(page)
 
     mmu->pageTable[page_table_index].pageNumber = page_number;
     mmu->pageTable[page_table_index].frameNumber = frame_number;
@@ -21,6 +22,11 @@ int handle_page_fault(int page_number, MemoryManagementUnit* mmu) {
 
     return frame_number;
 
+}
+
+void translate_logical_to_physical(int page_number,int frame_number ) {
+    // gets specefied page number 
+    // creates new frames struct where 
 }
 
 int translate_page_to_physical(Page* page, MemoryManagementUnit* mmu) {
