@@ -54,7 +54,7 @@ Page* get_page(Page* pages,int page_number);
 
 // frames functions 
 
-void read_from_backing_store(signed char* physicalMemory, int frameNumber, const char* backingStoreFile);
+signed char* read_from_backing_store(int frameNumber, const char* backingStoreFile);
 
 // mmu function 
 
