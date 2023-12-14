@@ -22,12 +22,11 @@ int main() {
     const char* addresses_file = "addresses.txt"; 
     int size;
     int* logical_addresses = read_logical_addresses(addresses_file);
-
     if (logical_addresses == NULL) {
         return EXIT_FAILURE;
     }
 
-    // Rest of your implementation goes here
+    // Rest code goes here
 
     // Remember to free the allocated memory
     free(logical_addresses);
