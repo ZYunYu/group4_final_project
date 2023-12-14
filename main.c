@@ -21,8 +21,7 @@ int* read_addresses(char* filename) {
 int main() {
     const char* addresses_file = "addresses.txt"; 
     int size;
-    int* logical_addresses = read_addresses(addresses_file, &size);
-
+    int* logical_addresses = read_logical_addresses(addresses_file);
     if (logical_addresses == NULL) {
         return EXIT_FAILURE;
     }

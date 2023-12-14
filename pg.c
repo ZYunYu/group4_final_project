@@ -1,22 +1,28 @@
 #include "final_proj.h"
 #include <stdlib.h>
 #include <stdio.h>
-Page* pages;
-
+extern Page* pages; 
 Page* convert_addresses(int* addresses) {
     pages =(Page*) malloc(sizeof(Page) *1000);
-    for (size_t i = 0; i < 1000; i++){
+    for (int i = 0; i < 1000; i++){
         Page* current  =  malloc(sizeof(Page));
         current->pageNumber = get_page_number(addresses[i]);
         current->pageOffset = get_page_offset(addresses[i]);
         pages[i] = *current;
         free(current);
     }
-
     return pages; 
-    
 
 }
+Page* get_page(Page* pages,int page_number) {
+    for(int i=0;i<1000;i++) {
+        if(pages[i].PageNumber == page_number) {
+            return pages[i];
+        }
+    }
+    return -1;
+}
+
 
 
 int get_page_number(int logical_address) {
