@@ -1,7 +1,7 @@
 #include "final_proj.h"
 #include <stdlib.h>
 #include <stdio.h>
-extern Page* pages; 
+Page* pages; 
 Page* convert_addresses(int* addresses) {
     pages =(Page*) malloc(sizeof(Page) *1000);
     for (int i = 0; i < 1000; i++){
@@ -14,13 +14,13 @@ Page* convert_addresses(int* addresses) {
     return pages; 
 
 }
-Page* get_page(Page* pages,int page_number) {
+Page get_page(Page* pages,int page_number) {
     for(int i=0;i<1000;i++) {
-        if(pages[i].PageNumber == page_number) {
+        if(pages[i].pageNumber == page_number) {
             return pages[i];
         }
     }
-    return -1;
+    exit(1);
 }
 
 
